@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para vos, Jana 💖</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #ff99cc, #ffccff);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive;
+    }
+
+    svg {
+      width: 300px;
+      animation: girar 10s linear infinite;
+    }
+
+    @keyframes girar {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    h1 {
+      color: white;
+      margin-top: 20px;
+      text-shadow: 2px 2px 5px #c0392b;
+    }
+
+    #playBtn {
+      margin-top: 30px;
+      font-size: 18px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      background-color: #ff4d6d;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    #playBtn:hover {
+      background-color: #e04362;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ❤️ SVG con texto como patrón dentro del corazón -->
+  <svg viewBox="0 0 200 200">
+    <defs>
+      <pattern id="textPattern" patternUnits="userSpaceOnUse" width="200" height="40">
+        <text x="0" y="30" font-size="30" fill="#ff3366" font-family="Arial" opacity="0.3">
+          JANA JANA JANA JANA 💖
+        </text>
+      </pattern>
+    </defs>
+    <path 
+      d="M100 180 
+         C 20 120, 20 40, 100 70 
+         C 180 40, 180 120, 100 180 Z"
+      fill="url(#textPattern)" 
+      stroke="#ff3366" stroke-width="3"/>
+  </svg>
+
+  <h1>Te amo con todo mi corazón, Jana 💘</h1>
+
+  <button id="playBtn">🎵 Escuchar canción</button>
+
+  <audio id="audioPlayer" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta el audio 😢
+  </audio>
+
+  <script>
+    const audio = document.getElementById('audioPlayer');
+    const btn = document.getElementById('playBtn');
+
+    btn.addEventListener('click', () => {
+      audio.play();
+      btn.style.display = 'none'; // Oculta el botón después de tocarlo
+    });
+  </script>
+
+</body>
+</html>
